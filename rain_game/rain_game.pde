@@ -1,16 +1,21 @@
-int speed = 50;
+int speed = 10;
 int x = 50;
 int y = 50;
 int z = 50;
+int score = 0;
 void setup( ){
 size(1000,500);
   
-
+background(#FF00DE);
 }
 
 void draw(  ) {
-  background(#FFC82E);                  // /\/ / /\/ _/ /\
+  background(#FFC82E);              //                             /\/ / /\/ _/ /\
 
+checkCatch();
+fill(#4D2EFF);
+textSize(16);
+text("Score: " + score, 20, 20);
 
 
 if (y == 500){
@@ -34,6 +39,13 @@ stroke(0,0,0);
 ellipse(50,y++,50,50);
 
 }
+
+void checkCatch(){
+     if (x > mouseX && x < mouseX+100 && y == height){
+          score++;}
+     else if (score > 0 && y == height) {
+          score--;
+     println("Your score is now: " + score); }}
 
 
 void newDrop (){
